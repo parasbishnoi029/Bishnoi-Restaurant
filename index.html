@@ -20,14 +20,54 @@ body {
   color: white;
 }
 
-/* Navbar */
+/* 🔥 NAVBAR */
 .navbar {
-  padding: 20px 50px;
-  font-size: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-size: 20px;
   font-weight: bold;
 }
 
-/* Hero */
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ff7a18;
+}
+
+/* HERO */
 .hero {
   height: 90vh;
   background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center/cover no-repeat;
@@ -60,7 +100,7 @@ body {
   opacity: 0.8;
 }
 
-/* Booking instruction */
+/* BOOKING BOX */
 .booking {
   margin-top: 20px;
   background: #ff7a18;
@@ -70,7 +110,7 @@ body {
   animation: pulse 2s infinite;
 }
 
-/* Sections */
+/* SECTIONS */
 .section {
   padding: 60px 20px;
   text-align: center;
@@ -112,14 +152,14 @@ body {
   font-size: 14px;
 }
 
-/* Footer */
+/* FOOTER */
 .footer {
   text-align: center;
   padding: 20px;
   opacity: 0.6;
 }
 
-/* Made by */
+/* MADE BY */
 .made-by {
   position: fixed;
   bottom: 20px;
@@ -130,7 +170,7 @@ body {
   font-size: 12px;
 }
 
-/* Animations */
+/* ANIMATIONS */
 @keyframes fadeUp {
   from {opacity: 0; transform: translateY(30px);}
   to {opacity: 1; transform: translateY(0);}
@@ -146,21 +186,33 @@ body {
 
 <body>
 
-<!-- Navbar -->
-<div class="navbar">Bishnoi Restaurant 🍽️</div>
+<!-- 🔥 NAVBAR -->
+<div class="navbar">
+  <div class="logo-container">
+    <img src="logo.png" class="logo-img">
+    <div class="logo-text">Bishnoi Restaurant</div>
+  </div>
 
-<!-- Hero -->
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">Menu</a>
+    <a href="#">About</a>
+  </div>
+</div>
+
+<!-- HERO -->
 <div class="hero">
   <div class="hero-content">
     <h1>Luxury Dining Experience</h1>
     <p>Delicious meals. Instant booking.</p>
+
     <div class="booking">
       👉 Click chatbot (bottom-right) to reserve your table
     </div>
   </div>
 </div>
 
-<!-- Menu -->
+<!-- MENU -->
 <div class="section">
   <h2>Our Special Menu 🍛</h2>
 
@@ -196,20 +248,21 @@ body {
   </div>
 </div>
 
-<!-- About -->
+<!-- ABOUT -->
 <div class="section">
   <h2>About Us</h2>
-  <p>Experience authentic taste with a premium atmosphere in Bishnoi Restaurant.</p>
+  <p>Experience authentic taste with a premium atmosphere at Bishnoi Restaurant.</p>
 </div>
 
-<!-- Footer -->
+<!-- FOOTER -->
 <div class="footer">
   © 2026 Bishnoi Restaurant
 </div>
 
+<!-- BRAND -->
 <div class="made-by">🤖 Made by Paras</div>
 
-<!-- WotNot Chatbot -->
+<!-- 🤖 WOTNOT CHATBOT -->
 <script src="https://app.wotnot.io/chat-widget/5czhdH2N3tB8071020251196LKoCV6ju.js" defer></script>
 
 </body>
