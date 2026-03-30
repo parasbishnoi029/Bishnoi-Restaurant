@@ -1,23 +1,158 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Bishnoi Restaurant Chatbot</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bishnoi Restaurant</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1f1f2e, #2c2c54);
+  color: white;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.nav-btn {
+  background: #ff7a18;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  opacity: 0.8;
+  margin-bottom: 25px;
+}
+
+.btn {
+  padding: 14px 30px;
+  border: none;
+  border-radius: 30px;
+  background: #ff7a18;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #ff9a3c;
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px;
+  text-align: center;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 15px;
+  width: 250px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.6;
+}
+</style>
+
 </head>
+
 <body>
 
-<div class="chatbox">
-  <h2>Bishnoi Restaurant 🍽️</h2>
-  <div id="chat"></div>
-
-  <input type="text" id="userInput" placeholder="Type here...">
-  <button onclick="sendMessage()">Send</button>
+<!-- Navbar -->
+<div class="navbar">
+  <div class="logo">Bishnoi Restaurant 🍽️</div>
+  <button class="nav-btn" onclick="openChat()">Reserve Table</button>
 </div>
 
-<script src="script.js"></script>
+<!-- Hero -->
+<div class="hero">
+  <div>
+    <h1>Fine Dining Experience</h1>
+    <p>Book your table instantly with our smart chatbot</p>
+    <button class="btn" onclick="openChat()">Book Now</button>
+  </div>
+</div>
 
-<!-- ADD YOUR WOTNOT SCRIPT HERE -->
+<!-- Features -->
+<div class="features">
+  <div class="card">
+    <h3>🍴 Quality Food</h3>
+    <p>Delicious meals crafted by top chefs</p>
+  </div>
+
+  <div class="card">
+    <h3>⚡ Instant Booking</h3>
+    <p>Reserve your table in seconds</p>
+  </div>
+
+  <div class="card">
+    <h3>📍 Easy Access</h3>
+    <p>Find us easily and enjoy your visit</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  © 2026 Bishnoi Restaurant | All Rights Reserved
+</div>
+
+<!-- WotNot Chatbot Script -->
 <script src="https://app.wotnot.io/chat-widget/5czhdH2N3tB8071020251196LKoCV6ju.js" defer></script>
+
+<script>
+function openChat() {
+  // Opens chatbot (best effort trigger)
+  let iframe = document.querySelector("iframe");
+  if (iframe) {
+    iframe.style.display = "block";
+  }
+}
+</script>
 
 </body>
 </html>
