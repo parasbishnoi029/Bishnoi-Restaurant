@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bishnoi Restaurant</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
@@ -33,15 +32,6 @@ body {
   font-weight: 700;
 }
 
-.nav-btn {
-  background: #ff7a18;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  color: white;
-  cursor: pointer;
-}
-
 /* Hero */
 .hero {
   height: 90vh;
@@ -58,22 +48,6 @@ body {
 
 .hero p {
   opacity: 0.8;
-  margin-bottom: 25px;
-}
-
-.btn {
-  padding: 14px 30px;
-  border: none;
-  border-radius: 30px;
-  background: #ff7a18;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #ff9a3c;
 }
 
 /* Features */
@@ -98,46 +72,57 @@ body {
   opacity: 0.6;
 }
 
-/* Hint popup */
-.hint {
+/* 🌑 Overlay Spotlight */
+.overlay {
   position: fixed;
-  bottom: 90px;
-  right: 20px;
-  background: #ff7a18;
-  padding: 12px 16px;
-  border-radius: 10px;
-  color: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  z-index: 9999;
-  animation: fadeIn 0.5s ease;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 80px 30px;
+  z-index: 9998;
+  animation: fadeIn 0.6s ease;
 }
 
+/* 💬 Spotlight Message */
+.spotlight-box {
+  background: #ff7a18;
+  padding: 14px 18px;
+  border-radius: 12px;
+  color: white;
+  font-size: 14px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  animation: slideUp 0.5s ease;
+}
+
+/* Animations */
 @keyframes fadeIn {
-  from {opacity: 0; transform: translateY(10px);}
-  to {opacity: 1; transform: translateY(0);}
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideUp {
+  from {transform: translateY(20px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
 }
 </style>
-
 </head>
 
 <body>
 
-<!-- Navbar -->
 <div class="navbar">
   <div class="logo">Bishnoi Restaurant 🍽️</div>
-  <button class="nav-btn" onclick="showHint()">Reserve Table</button>
 </div>
 
-<!-- Hero -->
 <div class="hero">
   <div>
     <h1>Fine Dining Experience</h1>
-    <p>Book your table instantly with our smart assistant</p>
-    <button class="btn" onclick="showHint()">Book Now</button>
+    <p>Reserve your table instantly with our smart assistant</p>
   </div>
 </div>
 
-<!-- Features -->
 <div class="features">
   <div class="card">
     <h3>🍴 Quality Food</h3>
@@ -155,7 +140,6 @@ body {
   </div>
 </div>
 
-<!-- Footer -->
 <div class="footer">
   © 2026 Bishnoi Restaurant | All Rights Reserved
 </div>
@@ -164,33 +148,37 @@ body {
 <script src="https://app.wotnot.io/chat-widget/5czhdH2N3tB8071020251196LKoCV6ju.js" defer></script>
 
 <script>
-/* 🔥 Auto-open attempt */
 window.addEventListener("load", function () {
+
+  // 🔥 Auto-open attempt
   setTimeout(() => {
     try {
       let btn = document.querySelector('[class*="chat"], [id*="chat"]');
       if (btn) btn.click();
-    } catch (e) {
-      console.log("Auto-open failed");
-    }
+    } catch(e){}
+  }, 2500);
 
-    showHint(); // fallback
-  }, 3000);
+  // 🌑 Show spotlight overlay
+  setTimeout(() => {
+    const overlay = document.createElement("div");
+    overlay.className = "overlay";
+
+    const box = document.createElement("div");
+    box.className = "spotlight-box";
+    box.innerText = "👋 Tap here to book your table instantly";
+
+    overlay.appendChild(box);
+    document.body.appendChild(overlay);
+
+    // Remove after 5 sec
+    setTimeout(() => overlay.remove(), 5000);
+
+    // Click to remove early
+    overlay.onclick = () => overlay.remove();
+
+  }, 2000);
+
 });
-
-/* 💡 User guidance (ALWAYS works) */
-function showHint() {
-  const old = document.querySelector(".hint");
-  if (old) old.remove();
-
-  const msg = document.createElement("div");
-  msg.className = "hint";
-  msg.innerText = "👇 Click the chat icon here to reserve your table";
-
-  document.body.appendChild(msg);
-
-  setTimeout(() => msg.remove(), 4000);
-}
 </script>
 
 </body>
