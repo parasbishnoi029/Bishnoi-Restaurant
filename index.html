@@ -42,7 +42,7 @@ body {
   cursor: pointer;
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
   height: 90vh;
   display: flex;
@@ -76,7 +76,7 @@ body {
   background: #ff9a3c;
 }
 
-/* Features Section */
+/* Features */
 .features {
   display: flex;
   justify-content: space-around;
@@ -106,15 +106,15 @@ body {
 <!-- Navbar -->
 <div class="navbar">
   <div class="logo">Bishnoi Restaurant 🍽️</div>
-  <button class="nav-btn" onclick="openChat()">Reserve Table</button>
+  <button class="nav-btn" onclick="showMessage()">Reserve Table</button>
 </div>
 
 <!-- Hero -->
 <div class="hero">
   <div>
     <h1>Fine Dining Experience</h1>
-    <p>Book your table instantly with our smart chatbot</p>
-    <button class="btn" onclick="openChat()">Book Now</button>
+    <p>Book your table instantly with our smart assistant</p>
+    <button class="btn" onclick="showMessage()">Book Now</button>
   </div>
 </div>
 
@@ -132,7 +132,7 @@ body {
 
   <div class="card">
     <h3>📍 Easy Access</h3>
-    <p>Find us easily and enjoy your visit</p>
+    <p>Visit us anytime with ease</p>
   </div>
 </div>
 
@@ -141,19 +141,14 @@ body {
   © 2026 Bishnoi Restaurant | All Rights Reserved
 </div>
 
-<!-- WotNot Chatbot Script -->
+<!-- WotNot Chatbot -->
 <script src="https://app.wotnot.io/chat-widget/5czhdH2N3tB8071020251196LKoCV6ju.js" defer></script>
 
 <script>
-function openChat() {
-  // Opens chatbot (best effort trigger)
-  let iframe = document.querySelector("iframe");
-  if (iframe) {
-    iframe.style.display = "block";
-  }
+function showMessage() {
+  alert("👉 Click the chat icon at the bottom-right corner to reserve your table.");
 }
 </script>
 
 </body>
 </html>
-
