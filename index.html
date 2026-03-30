@@ -16,24 +16,13 @@
 }
 
 body {
-  background: linear-gradient(135deg, #1f1f2e, #2c2c54);
+  background: #0f0f1a;
   color: white;
-  transition: 0.5s;
-}
-
-/* Blur when chatbot active */
-body.chat-active {
-  filter: blur(2px) brightness(0.6);
 }
 
 /* Navbar */
 .navbar {
-  display: flex;
-  justify-content: space-between;
   padding: 20px 50px;
-}
-
-.logo {
   font-size: 22px;
   font-weight: bold;
 }
@@ -41,10 +30,25 @@ body.chat-active {
 /* Hero */
 .hero {
   height: 90vh;
+  background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center/cover no-repeat;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 1s ease;
 }
 
 .hero h1 {
@@ -56,6 +60,16 @@ body.chat-active {
   opacity: 0.8;
 }
 
+/* Booking instruction */
+.booking {
+  margin-top: 20px;
+  background: #ff7a18;
+  padding: 12px 18px;
+  border-radius: 10px;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
 /* Sections */
 .section {
   padding: 60px 20px;
@@ -65,15 +79,37 @@ body.chat-active {
 .cards {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 25px;
   flex-wrap: wrap;
 }
 
 .card {
-  background: rgba(255,255,255,0.05);
-  padding: 20px;
+  background: #1c1c2e;
   border-radius: 15px;
-  width: 250px;
+  overflow: hidden;
+  width: 260px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 14px;
 }
 
 /* Footer */
@@ -83,22 +119,27 @@ body.chat-active {
   opacity: 0.6;
 }
 
-/* Spotlight message */
-.hint {
+/* Made by */
+.made-by {
   position: fixed;
-  bottom: 100px;
+  bottom: 20px;
   right: 20px;
   background: #ff7a18;
-  padding: 12px 16px;
-  border-radius: 10px;
-  color: white;
-  z-index: 9999;
-  animation: fadeIn 0.5s ease;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 12px;
 }
 
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(10px);}
+/* Animations */
+@keyframes fadeUp {
+  from {opacity: 0; transform: translateY(30px);}
   to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.05);}
+  100% {transform: scale(1);}
 }
 </style>
 </head>
@@ -106,38 +147,59 @@ body.chat-active {
 <body>
 
 <!-- Navbar -->
-<div class="navbar">
-  <div class="logo">Bishnoi Restaurant 🍽️</div>
-</div>
+<div class="navbar">Bishnoi Restaurant 🍽️</div>
 
 <!-- Hero -->
 <div class="hero">
-  <div>
-    <h1>Experience Fine Dining</h1>
-    <p>Reserve your table instantly with our smart assistant</p>
+  <div class="hero-content">
+    <h1>Luxury Dining Experience</h1>
+    <p>Delicious meals. Instant booking.</p>
+    <div class="booking">
+      👉 Click chatbot (bottom-right) to reserve your table
+    </div>
   </div>
 </div>
 
-<!-- Menu Section -->
+<!-- Menu -->
 <div class="section">
-  <h2>Our Popular Dishes 🍛</h2>
+  <h2>Our Special Menu 🍛</h2>
+
   <div class="cards">
-    <div class="card">Paneer Butter Masala</div>
-    <div class="card">Dal Makhani</div>
-    <div class="card">Tandoori Roti</div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398">
+      <div class="card-content">
+        <h3>Main Course</h3>
+        <div class="menu-item"><span>Paneer Butter Masala</span><span>₹220</span></div>
+        <div class="menu-item"><span>Dal Makhani</span><span>₹180</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0">
+      <div class="card-content">
+        <h3>Breads</h3>
+        <div class="menu-item"><span>Butter Naan</span><span>₹40</span></div>
+        <div class="menu-item"><span>Lachha Paratha</span><span>₹50</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b">
+      <div class="card-content">
+        <h3>Drinks</h3>
+        <div class="menu-item"><span>Lassi</span><span>₹60</span></div>
+        <div class="menu-item"><span>Cold Drink</span><span>₹50</span></div>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- About Section -->
+<!-- About -->
 <div class="section">
   <h2>About Us</h2>
-  <p>We provide a premium dining experience with authentic flavors and excellent service.</p>
-</div>
-
-<!-- Location Section -->
-<div class="section">
-  <h2>Visit Us 📍</h2>
-  <p>Thathgarh, Punjab</p>
+  <p>Experience authentic taste with a premium atmosphere in Bishnoi Restaurant.</p>
 </div>
 
 <!-- Footer -->
@@ -145,26 +207,10 @@ body.chat-active {
   © 2026 Bishnoi Restaurant
 </div>
 
+<div class="made-by">🤖 Made by Paras</div>
+
 <!-- WotNot Chatbot -->
 <script src="https://app.wotnot.io/chat-widget/5czhdH2N3tB8071020251196LKoCV6ju.js" defer></script>
-
-<script>
-// Apply blur when chatbot likely opens
-setTimeout(() => {
-  document.body.classList.add("chat-active");
-}, 2500);
-
-// Show guidance message
-setTimeout(() => {
-  const msg = document.createElement("div");
-  msg.className = "hint";
-  msg.innerText = "👉 Chat with us to reserve your table";
-
-  document.body.appendChild(msg);
-
-  setTimeout(() => msg.remove(), 4000);
-}, 2500);
-</script>
 
 </body>
 </html>
